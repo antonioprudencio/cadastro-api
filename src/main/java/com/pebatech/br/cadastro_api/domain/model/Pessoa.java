@@ -2,15 +2,13 @@ package com.pebatech.br.cadastro_api.domain.model;
 
 import com.pebatech.br.cadastro_api.domain.enums.IdentidadeGeneroEnum;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Getter
 @Setter
 @Entity
@@ -20,7 +18,7 @@ public class Pessoa extends ModeloGenerico {
     @Column(name = "nome")
     private String nome;
 
-    @Column(name = "cpf", length = 14)
+    @Column(unique = true, name = "cpf", length = 14)
     private String cpf;
 
     @Column(name = "data_nascimento", length = 50)
