@@ -29,9 +29,8 @@ public class ModeloGenerico implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @GeneratedValue(generator = "UUID")
     @Column(unique = true, updatable = false, nullable = false)
-    private UUID uuid;
+    private UUID uuid = UUID.randomUUID();
 
     @Column(columnDefinition = "boolean default true")
     private Boolean ativo = true;
